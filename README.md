@@ -21,9 +21,7 @@ Search the project for `[` and `YOUR-` to find them all.
 
 | Where | What to replace |
 | --- | --- |
-| `index.html` About section | The three `[Your story…]` paragraphs |
 | `index.html` Contact section | `[hello@yourdomain.com]` (the link text and the `mailto:`) |
-| `index.html` contact form | `YOUR_FORM_ID` in the form's `action` (see "Contact form" below) |
 | `privacy.html` | F40 number, CUI, registered address, privacy email, providers, publication date |
 
 ## Contact form
@@ -32,9 +30,9 @@ The form posts to [Formspree](https://formspree.io), which emails each message t
 
 1. Create a free Formspree account and a new form; set it to deliver to your STRATA email.
 2. Copy the form ID (the part after `/f/` in its endpoint).
-3. In `index.html`, replace `YOUR_FORM_ID` in `action="https://formspree.io/f/YOUR_FORM_ID"`.
+3. The form ID goes in the form's `action` in `index.html` (currently `mnppkpod`).
 
-Until then, the form politely tells visitors it isn't connected yet. The hidden `_gotcha` field is Formspree's spam trap; leave it in.
+The hidden `_gotcha` field is Formspree's spam trap; leave it in.
 
 Using another form service (Netlify Forms, Basin, Web3Forms) works too: point the `action` at its endpoint.
 
