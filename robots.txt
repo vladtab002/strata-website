@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://strata.ro/sitemap.xml
+Sitemap: https://stratastudio.ro/sitemap.xml
