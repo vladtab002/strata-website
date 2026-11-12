@@ -85,9 +85,9 @@ input, select, textarea, button { font: inherit; }
 .hero-art { flex: 1 1 400px; min-width: 0; max-width: 560px; margin-inline: auto; }
 .stack { position: relative; width: 100%; aspect-ratio: 1 / 1.02; }
 .stack img { position: absolute; object-fit: cover; border-radius: 4px; box-shadow: 0 24px 48px rgba(0, 0, 0, .45); }
-.stack-back { left: 60%; top: 0; width: 38%; aspect-ratio: 9 / 16; }
-.stack-mid { left: 29%; top: 18%; width: 42%; aspect-ratio: 1 / 1.414; }
-.stack-front { left: 0; top: 50%; width: 42%; aspect-ratio: 1 / 1; box-shadow: 14px 14px 0 var(--lime) !important; }
+.stack-back { left: 61%; top: 0; width: 37%; aspect-ratio: 9 / 16; }
+.stack-mid { left: 30%; top: 12%; width: 39%; aspect-ratio: 1 / 1.414; }
+.stack-front { left: 0; top: 38%; width: 40%; aspect-ratio: 1 / 1.414; box-shadow: 14px 14px 0 var(--lime) !important; }
 
 /* Strip */
 .strip { background: var(--lime); color: var(--ink-deep); }
