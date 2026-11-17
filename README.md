@@ -3,8 +3,10 @@
 A static one-page site: plain HTML, CSS and a little JavaScript. No build step, no frameworks. Any static host can serve this folder as it is.
 
 ```
-index.html        the one-page site (desktop and phone layouts in one page)
-privacy.html      privacy policy
+index.html        the one-page site, English (desktop and phone layouts in one page)
+privacy.html      privacy policy, English
+ro/index.html     Romanian version of the site
+ro/confidentialitate.html  Romanian privacy policy
 404.html          "page not found" page
 css/style.css     all styles (colours and fonts at the top, in :root)
 js/main.js        mobile menu, work filters, services accordion, contact form
@@ -43,6 +45,8 @@ Using another form service (Netlify Forms, Basin, Web3Forms) works too: point th
 **Recommended for ongoing changes:** put this folder in a GitHub repository and connect it to Netlify, Cloudflare Pages or Vercel. Every change pushed to the repository goes live automatically within a minute or two, and every version is kept.
 
 ## Editing tips
+
+- The site exists in two languages. Any text or portfolio change goes in both `index.html` and `ro/index.html` (Romanian pages use `../` in front of image, CSS and JS paths). The EN / RO switch in the header links each page to its counterpart.
 
 - After changing `css/style.css` or `js/main.js`, bump the `?v=` number where they're linked in `index.html` (and the CSS link in `privacy.html`) so browsers load the new version instead of a cached one.
 
