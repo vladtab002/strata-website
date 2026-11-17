@@ -132,6 +132,16 @@ input, select, textarea, button { font: inherit; }
 .service .plus { display: none; }
 .service p { margin: 18px 0 0; font-size: 16px; color: var(--muted); }
 
+/* Prices */
+.prices { margin-top: clamp(48px, 7vw, 80px); }
+.prices-title { margin: 0 0 24px; font-family: var(--heading); font-weight: 600; font-size: clamp(40px, 4.4vw, 56px); line-height: .9; color: var(--paper); }
+.price-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 56px; }
+.price-list li { display: flex; align-items: baseline; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 17px; }
+.price-name { font-weight: 500; }
+.price-dots { flex: 1; min-width: 24px; border-bottom: 1px dotted #4A4A4A; transform: translateY(-4px); }
+.price { flex-shrink: 0; font-weight: 600; color: var(--lime); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.prices-note { margin: 20px 0 0; font-size: 15px; color: var(--muted-2); }
+
 /* Process */
 .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .step { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 32px; padding: 24px 32px; border-radius: var(--radius); }
@@ -236,6 +246,8 @@ input, select, textarea, button { font: inherit; }
   .service[open] .plus { transform: rotate(45deg); }
   .service p { margin: 0; padding: 0 18px 22px 60px; font-size: 15px; }
 
+  .price-list { grid-template-columns: 1fr; }
+  .price-list li { font-size: 15px; padding: 14px 0; }
   .step { display: block; padding: 18px 20px; }
   .step-num { font-size: 36px; margin-right: 14px; }
   .step-name { font-size: 20px; }
