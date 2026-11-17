@@ -121,6 +121,18 @@ input, select, textarea, button { font: inherit; }
 .clients-label { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); }
 .clients-list { list-style: none; margin: 0; padding: 0; flex: 1 1 600px; display: flex; flex-wrap: wrap; gap: 6px 36px; font-family: var(--heading); font-weight: 500; font-size: 32px; line-height: 1.1; color: #D8D8D2; }
 
+/* Industries */
+.industries { padding-top: clamp(56px, 8vw, 104px); padding-bottom: 0; }
+.section-intro strong { color: var(--paper); font-weight: 600; }
+.industry-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.industry { display: flex; flex-direction: column; gap: 6px; padding: 28px 24px 24px; background: var(--surface); border-radius: var(--radius); }
+.industry:first-child { background: var(--lime); color: var(--ink-deep); }
+.industry-num { font-family: var(--display); font-weight: 900; font-stretch: 125%; font-size: clamp(44px, 4.6vw, 64px); line-height: 1; color: var(--lime); }
+.industry:first-child .industry-num { color: var(--ink-deep); }
+.industry-name { margin-top: 10px; font-size: 18px; font-weight: 600; line-height: 1.25; }
+.industry-unit { font-size: 14px; color: var(--muted-2); }
+.industry:first-child .industry-unit { color: #3A4A00; }
+
 /* Services */
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
 .service { background: var(--surface); border-radius: var(--radius); padding: 36px 32px 40px; }
@@ -197,6 +209,8 @@ input, select, textarea, button { font: inherit; }
 .legal { margin: 0; font-size: 14px; color: var(--muted-2); }
 
 /* Phone and small tablet */
+@media (max-width: 1000px) { .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
 @media (max-width: 760px) {
   body { font-size: 16px; }
   .header-inner { min-height: 68px; }
@@ -246,6 +260,10 @@ input, select, textarea, button { font: inherit; }
   .service[open] .plus { transform: rotate(45deg); }
   .service p { margin: 0; padding: 0 18px 22px 60px; font-size: 15px; }
 
+  .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .industry { padding: 20px 16px 18px; }
+  .industry-name { font-size: 16px; margin-top: 6px; }
+  .industry-unit { font-size: 13px; }
   .price-list { grid-template-columns: 1fr; }
   .price-list li { font-size: 15px; padding: 14px 0; }
   .step { display: block; padding: 18px 20px; }
