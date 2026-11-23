@@ -65,25 +65,26 @@
       if (collapsing) more.scrollIntoView({ block: 'center', behavior: 'smooth' });
     });
 
+    // Every filter shows at most this many pieces until "Show more" is pressed
+    var LIMIT = 10;
+
     function render() {
-      var limit = mobile.matches ? 8 : 12;
-      var shown = 0;
+      var matching = 0, shown = 0;
       items.forEach(function (it) {
         var match = state.filter === 'all' || it.getAttribute('data-cat') === state.filter;
-        var capped = state.filter === 'all' && !state.expanded && shown >= limit;
-        var visible = match && !capped;
+        if (match) matching++;
+        var visible = match && (state.expanded || shown < LIMIT);
         it.hidden = !visible;
         if (visible) shown++;
       });
       if (more) {
-        // Only on "All work", and only when there is more than one screenful to toggle
-        more.hidden = !(state.filter === 'all' && items.length > limit);
+        // The button only appears when the selected filter has more pieces than the limit
+        more.hidden = matching <= LIMIT;
         more.textContent = state.expanded ? T.less : T.more;
         more.setAttribute('aria-expanded', state.expanded ? 'true' : 'false');
       }
     }
     render();
-    mobile.addEventListener('change', render);
   }
 
   // Services: cards on desktop, accordion on phones

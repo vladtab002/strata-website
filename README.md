@@ -52,4 +52,4 @@ Using another form service (Netlify Forms, Basin, Web3Forms) works too: point th
 
 - Colours and fonts: the variables at the top of `css/style.css`.
 - Add a portfolio piece: export a WebP about 900 px wide into `img/work/`, then copy one `<figure class="work-item">` block in `index.html` and change the image, `width`/`height`, `alt` text, caption and `data-cat` (`ads`, `social` or `print`). The filter counts update themselves.
-- The first 12 pieces show on desktop (8 on phones) before the "Show all" button.
+- Every filter (All work, Ads, Social media, Print) shows at most 10 pieces. The "Show more / Show less" button appears only when the selected filter has more than 10. Change `LIMIT` in `js/main.js` to adjust.
