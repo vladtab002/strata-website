@@ -153,6 +153,7 @@ input, select, textarea, button { font: inherit; }
 .price-dots { flex: 1; min-width: 24px; border-bottom: 1px dotted #4A4A4A; transform: translateY(-4px); }
 .price { flex-shrink: 0; font-weight: 600; color: var(--lime); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .prices-note { margin: 20px 0 0; font-size: 15px; color: var(--muted-2); }
+.price-from { font-weight: 500; color: var(--muted-2); }
 
 /* Process */
 .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
@@ -265,7 +266,9 @@ input, select, textarea, button { font: inherit; }
   .industry-name { font-size: 16px; margin-top: 6px; }
   .industry-unit { font-size: 13px; }
   .price-list { grid-template-columns: 1fr; }
-  .price-list li { font-size: 15px; padding: 14px 0; }
+  .price-list li { flex-wrap: wrap; gap: 2px 12px; font-size: 15px; padding: 14px 0; }
+  .price-name { flex-basis: 100%; }
+  .price-dots { display: none; }
   .step { display: block; padding: 18px 20px; }
   .step-num { font-size: 36px; margin-right: 14px; }
   .step-name { font-size: 20px; }
