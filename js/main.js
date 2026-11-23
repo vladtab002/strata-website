@@ -7,12 +7,14 @@
     open: 'Deschide meniul', close: 'Închide meniul',
     invalid: 'Te rugăm să completezi numele, o adresă de email validă și un scurt mesaj.',
     notConnected: 'Formularul nu este încă activ. Te rugăm să ne scrii direct pe email.',
+    more: 'Vezi mai multe', less: 'Vezi mai puține',
     sending: 'Se trimite…', ok: 'Mulțumim! Mesajul tău a fost trimis. Revenim cu un răspuns în curând.',
     err: 'Ceva n-a mers. Încearcă din nou sau scrie-ne direct pe email.'
   } : {
     open: 'Open menu', close: 'Close menu',
     invalid: 'Please fill in your name, a valid email and a short message.',
     notConnected: 'The form isn’t connected yet. Please email us directly in the meantime.',
+    more: 'Show more', less: 'Show less',
     sending: 'Sending…', ok: 'Thanks! Your message is on its way. We’ll be in touch soon.',
     err: 'Something went wrong. Please try again or email us directly.'
   };
@@ -42,7 +44,6 @@
     var items = Array.prototype.slice.call(grid.querySelectorAll('.work-item'));
     var chips = Array.prototype.slice.call(document.querySelectorAll('.chip[data-filter]'));
     var more = document.getElementById('show-more');
-    var total = document.getElementById('total-count');
     var state = { filter: 'all', expanded: false };
 
     chips.forEach(function (chip) {
@@ -56,8 +57,13 @@
         render();
       });
     });
-    if (total) total.textContent = String(items.length);
-    if (more) more.addEventListener('click', function () { state.expanded = true; render(); });
+    if (more) more.addEventListener('click', function () {
+      var collapsing = state.expanded;
+      state.expanded = !state.expanded;
+      render();
+      // After collapsing, the page gets shorter: bring the button back into view
+      if (collapsing) more.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    });
 
     function render() {
       var limit = mobile.matches ? 8 : 12;
@@ -69,7 +75,12 @@
         it.hidden = !visible;
         if (visible) shown++;
       });
-      if (more) more.hidden = !(state.filter === 'all' && !state.expanded && items.length > limit);
+      if (more) {
+        // Only on "All work", and only when there is more than one screenful to toggle
+        more.hidden = !(state.filter === 'all' && items.length > limit);
+        more.textContent = state.expanded ? T.less : T.more;
+        more.setAttribute('aria-expanded', state.expanded ? 'true' : 'false');
+      }
     }
     render();
     mobile.addEventListener('change', render);
